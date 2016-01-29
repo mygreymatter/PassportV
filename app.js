@@ -9,6 +9,7 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var busboyBodyParser = require('busboy-body-parser');
 var configDB = require('./config/db');
 
 var app = express();
@@ -32,10 +33,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use(busboyBodyParser());
 
 app.use('/posts',postRouter);
 /*app.use(authRouter(passport));*/
 require('./routes/authrouter.js')(app,passport);
+require('./routes/uploadrouter.js')(app);
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/public/views/index.html');
