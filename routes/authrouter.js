@@ -10,10 +10,11 @@ module.exports = function (app, passport) {
         if (!req.body.username || !req.body.password)
             return res.status(500).json({status: responses.MISSING_DETAILS});
 
-        console.log('Router signup: ' + req.body.username + " " + req.body.password);
+        console.log('Router signup: ' + Object.keys(req.body));
 
         var user = new User();
         user.username = req.body.username;
+        user.imageid = req.body.imageid;
         user.setPassword(req.body.password)
 
         console.log('Saving USer: ' + user);

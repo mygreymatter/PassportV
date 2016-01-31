@@ -12,6 +12,7 @@ var userSchema = new mongoose.Schema({
         unique: true,
         lowercase: true
     },
+    imageid:String,
     hash: String,
     salt: String
 });
