@@ -5,12 +5,12 @@
 'use strict';
 
 module.exports = function (app) {
-    var upload = require('../public/js/upload');
+    var image = require('../public/js/upload');
 
-    app.route('/upload/:filename')
-        .get(upload.read);
+    app.route('/download/:filename')
+        .get(image.read);
 
 
     app.route('/upload')
-        .post(upload.create);
+        .post(image.create);
 };

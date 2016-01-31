@@ -10,22 +10,25 @@ Grid.mongo = mongoose.mongo;
 var gfs = new Grid(mongoose.connection.db);
 
 exports.create = function (req, res) {
-    console.log(Object.keys(req.files.filefields));
-    console.log('Create image: ' + req.files.filefields.name);
+    console.log('Uploading Image');
+    console.log('Files: '+ Object.keys(req.files.file));
 
-    var part = req.files.filefields;
+    var part = req.files.file;
     var writeStream = gfs.createWriteStream({
         filename: part.name,
         mode: 'w',
         content_type: part.mimetype
     });
 
-    writeStream.on('close', function () {
-        return res.status(200).json({message: 'Success'});
+    writeStream.on('close', function (file) {
+        console.log('File: ' + Object.keys(file) + " _id: " + file._id);
+        return res.status(200).json({message: 'Success',imageid:file._id});
     });
 
     writeStream.write(part.data);
     writeStream.end();
+
+    //return res.status(400).json({status:'failed'});
 };
 
 exports.read = function (req, res) {

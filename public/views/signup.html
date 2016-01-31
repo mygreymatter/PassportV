@@ -3,6 +3,9 @@
 <form ng-submit="signup(user)">
     <input class="form-control" type="text" placeholder="usename" ng-model="user.username"/><br/>
     <input class="form-control" type="password" placeholder="password" ng-model="user.password"/><br/>
+    <!--<input class="form-control" type="file" name="filename" multiple
+           onchange="angular.element(this).scope().uploadedFile(this)" /><br/>-->
+    <input type='file' file-model='file' multiple><br/>
     <button type="submit">Signup</button>
 
 </form>

@@ -39,8 +39,9 @@ app.use('/posts',postRouter);
 /*app.use(authRouter(passport));*/
 require('./routes/authrouter.js')(app,passport);
 require('./routes/uploadrouter.js')(app);
+require('./routes/user.js')(app);
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
     res.sendFile(__dirname + '/public/views/index.html');
 })
 
