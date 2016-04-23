@@ -11,7 +11,7 @@
             o.getPosts = function () {
                 console.log('Get Posts in PostFactory');
                 return $http.get('/posts').then(function (response) {
-                    console.log('Success: ' + response.data[0].title);
+                    console.log('Success: ' + response.data);
                     return angular.copy(response.data, o.posts);
                 }, function (error) {
                     console.log('Getting posts Error: ' + error);

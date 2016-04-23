@@ -1,10 +1,6 @@
 /**
  * Created by mayo on 1/28/16.
  */
-
-
-
-
 module.exports = {
     SUCCESS: 000,
     FAILURE: 111,
