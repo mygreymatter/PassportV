@@ -39,9 +39,10 @@
                     fileDialog.openFile(function (files) {
                         console.log('filedialog: ' + files);
 
+                        var formData = new FormData();
                         angular.forEach(files, function (file, key) {
                             console.log('Key: ' + key + ", Value: " + file.name);
-                            $scope.fd.append('file', file);
+                            $scope.fd.append(key, file);
                         });
 
                         $http.post('/upload', $scope.fd, {

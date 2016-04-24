@@ -1,6 +1,6 @@
 {{title}}
 <!--<img ng-src="../images/jumping.jpg" width="30%" height="40%" imageonload class="noDisplay" />-->
-<img width="30%" height="30%" id="profileImage" ng-src="/download/{{imageid}}" ng-click="updateImage()" imageonload class="noDisplay" />
+<img width="30%" height="30%" id="profileImage" ng-src="/download/{{imageid}}" ng-click="updateImage()" imageonload class="" />
 <!--<div></div>-->
 <form ng-submit="addPost(post)">
 
@@ -8,11 +8,6 @@
     <button type="submit">Add Post</button>
 
 </form>
-
-<!--<form id="uploadForm" enctype="multipart/form-data" action="/upload" method="post">
-    <input type="file" name="userPhoto"/>
-    <input type="submit" value="Upload Image" name="submit">
-</form>-->
 
 <button ng-click="logout()">Logout</button>
 <ul ng-repeat="post in posts">

@@ -10,7 +10,8 @@ Grid.mongo = mongoose.mongo;
 var gfs = new Grid(mongoose.connection.db);
 
 exports.create = function (req, res) {
-    //console.log('Request Files: ' + req.files[0].name);
+    /*console.log('Request Files: ' + Object.keys(req.files[0]));
+    console.log('File Name: ' + req.files[0].name);*/
 
     var part = req.files[0];
     var writeStream = gfs.createWriteStream({
