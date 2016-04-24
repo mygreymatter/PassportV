@@ -3,7 +3,7 @@
  */
 
 (function () {
-    angular.module('Signup', ['Authenticator', 'file-model'])
+    angular.module('Signup', ['Authenticator'])
         .controller('SignupController', ['$scope', '$http', 'AuthFactory', function ($scope, $http, AuthFactory) {
             console.log('SignupController');
             $scope.title = "Signup";
